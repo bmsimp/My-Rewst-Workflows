@@ -10,5 +10,6 @@ Assuming that you've read all of Giga's code... here's how I got started. Unlike
 Given all of this, I got to work on the setup of my KarpelBot: 
 1. I installed it in our dev tenant using Giga's handy guide.
 2. I set up a basic one noop workflow in Rewst with a webhook trigger to be the messaging endpoint. If you've followed Giga's blog, he used webhook.site to test.
-3. Using the very easy to follow package instructions Giga provided, I created my KarpelBot zip file and uploaded it to my dev tenant and waited for it to propogage.
-4. While that was uploading, I created a very basic adaptive card from one I've already used in other workflows. 
+3. Using the very easy to follow package instructions Giga provided, I created my KarpelBot zip file and uploaded it to my dev tenant and waited for it to propogate.
+4. Instead of using the custom integration, I set up a workflow that will refresh the token and keep an organization variable named `karpelbot_access_token` so if you utilize any of my workflows, you'll need to replace that token variable name with your own.
+5. While that was uploading, I created a very basic adaptive card from one I've already used in other workflows. 

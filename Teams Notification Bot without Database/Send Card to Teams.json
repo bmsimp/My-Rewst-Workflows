@@ -1,0 +1,98 @@
+{
+  "045575ec8b6348ecb1dea5135421affb": {
+    "input": {},
+    "isMocked": false,
+    "mockInput": {
+      "mock_result": {}
+    },
+    "join": 0,
+    "metadata": {
+      "x": 1028.1945063076412,
+      "y": 317.8547472259889
+    },
+    "humanSecondsSaved": 0,
+    "transitionMode": "FOLLOW_ALL",
+    "packOverrides": [],
+    "publishResultAs": "",
+    "runAsOrgId": "",
+    "with": null,
+    "next": [
+      {
+        "__typename": "WorkflowTransition",
+        "id": "3650706e-2d1e-4f37-824f-a7a2a4cf6c0b",
+        "when": "{{ SUCCEEDED }}",
+        "do": [
+          "80c4dcbd37e441408404defc5b1e25c1"
+        ],
+        "publish": [],
+        "label": ""
+      }
+    ],
+    "name": "start",
+    "description": "Action that does nothing",
+    "timeout": 600,
+    "securitySchema": {
+      "redact": {
+        "input": [],
+        "result": []
+      }
+    }
+  },
+  "80c4dcbd37e441408404defc5b1e25c1": {
+    "input": {
+      "url": "https://smba.trafficmanager.net/amer/v3/conversations",
+      "body": "{{ CTX.body }}",
+      "json": null,
+      "files": [],
+      "method": "POST",
+      "params": null,
+      "cookies": null,
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {{ ORG.VARIABLES.karpelbot_access_token }}"
+      },
+      "timeout": 60,
+      "auth_password": null,
+      "auth_username": null,
+      "allow_redirects": true,
+      "require_2xx_status": true
+    },
+    "isMocked": false,
+    "mockInput": {
+      "mock_result": {}
+    },
+    "join": 0,
+    "metadata": {
+      "x": 1032,
+      "y": 456
+    },
+    "humanSecondsSaved": 0,
+    "transitionMode": "FOLLOW_ALL",
+    "packOverrides": [],
+    "publishResultAs": "card_send",
+    "runAsOrgId": "",
+    "with": null,
+    "next": [
+      {
+        "__typename": "WorkflowTransition",
+        "id": "91bd6769-d406-428a-b935-1ccd71d9402c",
+        "when": "{{ SUCCEEDED }}",
+        "do": [],
+        "publish": [],
+        "label": ""
+      }
+    ],
+    "name": "send_card",
+    "description": "Perform an HTTP request",
+    "timeout": 600,
+    "securitySchema": {
+      "redact": {
+        "input": [
+          "auth_password",
+          "headers.Authorization"
+        ],
+        "result": []
+      }
+    }
+  }
+}

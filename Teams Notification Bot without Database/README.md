@@ -1,3 +1,14 @@
 # Teams Notification Bot without Database
 
-I'd like to give full credit to Brandon/Giga for his blog on how to set up the Azure Bot Framework to work with Teams. I highly, highly recommend you read his blog on the basics of setup, interacting with the bot, and basic messaging. [Click here to read.](https://blog.gigacode.dev/technology/cloud-concepts/microsoft-azure/bot-framework) 
+I'd like to give full credit to Brandon/Giga for his blog on how to set up the Azure Bot Framework to work with Teams. I highly, highly recommend you read his blog on the basics of setup, interacting with the bot, and basic messaging. [Click here to read:](https://blog.gigacode.dev/technology/cloud-concepts/microsoft-azure/bot-framework) 
+![image](https://github.com/bmsimp/My-Rewst-Workflows/assets/50429915/50d30b0d-5bd0-43ac-8cac-1f1559d57b15)
+
+## The Basics
+
+Assuming that you've read all of Giga's code... here's how I got started. Unlike his bot, I was looking to create a notification only bot. Something that would send a notice to Teams based on ticket activity. These notices are going to different Teams channels based on the type of activity. I don't currently have in my scope to create a chat bot that would have a need to identify and respond to potentially dozens or even hundreds of user chat installs. I also didn't want to have to learn how to use Azure Tables or bug our team to create new SQL tables for me. When I began to review how to design the adaptive cards, I noticed that the submit action could include a JSON object with the return.
+
+Given all of this, I got to work on the setup of my KarpelBot: 
+1. I installed it in our dev tenant using Giga's handy guide.
+2. I set up a basic one noop workflow in Rewst with a webhook trigger to be the messaging endpoint. If you've followed Giga's blog, he used webhook.site to test.
+3. Using the very easy to follow package instructions Giga provided, I created my KarpelBot zip file and uploaded it to my dev tenant and waited for it to propogage.
+4. While that was uploading, I created a very basic adaptive card from one I've already used in other workflows. 

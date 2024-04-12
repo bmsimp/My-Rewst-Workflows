@@ -3,9 +3,12 @@
 I'd like to give full credit to Brandon/Giga for his blog on how to set up the Azure Bot Framework to work with Teams. I highly, highly recommend you read his blog on the basics of setup, interacting with the bot, and basic messaging. [Click here to read:](https://blog.gigacode.dev/technology/cloud-concepts/microsoft-azure/bot-framework) 
 ![image](https://github.com/bmsimp/My-Rewst-Workflows/assets/50429915/50d30b0d-5bd0-43ac-8cac-1f1559d57b15)
 
+## Considerations
+1. My bot is for proactive notificatoins to Teams channels only at this time. I don't have need to store conversation IDs for end users because that's outside the scope of my need. If you do, you may want to look at setting up Azure Tables or SQL to handle keeping track of all of those IDs for later reference.
+
 ## The Basics
 
-Assuming that you've read all of Giga's code... here's how I got started. Unlike his bot, I was looking to create a notification only bot. Something that would send a notice to Teams based on ticket activity. These notices are going to different Teams channels based on the type of activity. I don't currently have in my scope to create a chat bot that would have a need to identify and respond to potentially dozens or even hundreds of user chat installs. I also didn't want to have to learn how to use Azure Tables or bug our team to create new SQL tables for me. When I began to review how to design the adaptive cards, I noticed that the submit action could include a JSON object with the return.
+Assuming that you've read all of Giga's code... here's how I got started.
 
 Given all of this, I got to work on the setup of my bot: 
 1. I installed it in our dev tenant using Giga's handy guide.
@@ -19,3 +22,9 @@ Given all of this, I got to work on the setup of my bot:
 10. I could even add additional fields to the JSON object: ![image](https://github.com/bmsimp/My-Rewst-Workflows/assets/50429915/4f80a3fb-48f0-4b90-8fa1-902ddacac817)
 11. Looking at the response to the action that sends the card to the Teams channel, the message id and activity id are returned: ![image](https://github.com/bmsimp/My-Rewst-Workflows/assets/50429915/6291a2ec-b853-4370-8811-ca7bf505e1e5)
 
+## Resources
+1. Giga's blog on the Bot Framework: [https://blog.gigacode.dev/technology/cloud-concepts/microsoft-azure/bot-framework](https://blog.gigacode.dev/technology/cloud-concepts/microsoft-azure/bot-framework)
+2. Microsoft's follow along guide on how to create a notification bot that I used to get a lot of the proper formatting for enclosing a card: [https://learn.microsoft.com/en-us/microsoftteams/platform/sbs-gs-notificationbot?tabs=vscode](https://learn.microsoft.com/en-us/microsoftteams/platform/sbs-gs-notificationbot?tabs=vscode)
+3. Actionable Messages Designer: [https://amdesigner.azurewebsites.net/](https://amdesigner.azurewebsites.net/)
+4. Adaptive Card Designer: [https://adaptivecards.io/designer/](https://adaptivecards.io/designer/)
+5. Adaptive Card schema: [https://adaptivecards.io/explorer/](https://adaptivecards.io/explorer/)
